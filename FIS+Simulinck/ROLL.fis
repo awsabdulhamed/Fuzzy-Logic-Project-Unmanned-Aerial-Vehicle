@@ -1,0 +1,44 @@
+[System]
+Name='ROLL'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='errorZ'
+Range=[-1 1]
+NumMFs=5
+MF1='Nhight':'trapmf',[-1 -1 -0.5 -0.2]
+MF2='Nlow':'trimf',[-0.3 -0.15 0]
+MF3='Phight':'trapmf',[0.2 0.4 1 1]
+MF4='Plow':'trimf',[0 0.15 0.3]
+MF5='ZERO':'trimf',[-0.1 0 0.1]
+
+[Input2]
+Name='errordotZ'
+Range=[-3 3]
+NumMFs=5
+MF1='Nfast':'trapmf',[-3 -3 -2 -1]
+MF2='Nslow':'trimf',[-1.5 -1 0]
+MF3='Pfast':'trapmf',[1 2 3 3]
+MF4='Pslow':'trimf',[0 0.75 1.5]
+MF5='ZERO':'trimf',[-0.5 0 0.5]
+
+[Output1]
+Name='PWM'
+Range=[-1 1]
+NumMFs=5
+MF1='Nbig':'trapmf',[-1 -1 -0.5 -0.4]
+MF2='Nsmall':'trimf',[-0.4 -0.2 0]
+MF3='ZERO':'trimf',[-0.1 0 0.1]
+MF4='Psmall':'trimf',[0 0.2 0.4]
+MF5='Pbig':'trapmf',[0.4 0.6 1 1]
+
+[Rules]
